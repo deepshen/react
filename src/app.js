@@ -1,16 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-
+import {HashRouter as Router,Route,Link} from 'react-router-dom'
 import ToDoApp from './components/ToDoApp.js'
 
+import App from './view/Main'
 
-class App extends React.Component{
-    render(){
-        return(
-           <ToDoApp/>
-        )
-    }
-}
+
 
 ReactDom.render(
     <App/>,
