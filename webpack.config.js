@@ -1,9 +1,11 @@
 var webapck = require('webpack');
 var path = require('path');
+var htmlPlugin = require('html-webpack-plugin')
 module.exports={
     entry:'./src/app.js',
     output: {
-        path: '/build',
+        path: path.resolve(__dirname, './dist'),
+        publicPath: "/",
         filename: "bundle.js"
     },
     module: {
@@ -26,5 +28,21 @@ module.exports={
                 loader: "style-loader!css-loader!less-loader"
             }
         ]
-    }
+    },
+    resolve: {
+        alias: {
+            'jquery':'jquery'
+        },
+        extensions: ['*','.js','.less','.json','.css']
+    },
+    plugins: [
+        new webapck.ProvidePlugin({
+            $:'jquery',
+            jQuery:'jquery'
+        }),
+        new htmlPlugin({
+            filename:'index.html',
+            template:'./index.html'
+        })
+    ]
 };
