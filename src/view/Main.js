@@ -1,4 +1,4 @@
-import {HashRouter as Router,Route,Link} from 'react-router-dom'
+import {HashRouter as Router,Route,Link,hashHistory} from 'react-router-dom'
 import React from 'react'
 import './Main.less'
 
@@ -24,7 +24,7 @@ class App extends React.Component{
     }
     render(){
         return(
-            <Router>
+            <Router history={hashHistory}>
                 <div id='main'>
                     <Route exact path="/" component={Login}/>
                     <Route exact path="/home" component={Home}/>
