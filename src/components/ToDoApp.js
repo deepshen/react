@@ -33,6 +33,7 @@ class ToDoApp extends React.Component{
         }))
     }
     render(){
+        console.log(this.props);
         return(
             <div className="row">
                 <div className="col-md-10 col-md-offset-1">
@@ -44,7 +45,7 @@ class ToDoApp extends React.Component{
                         </div>
                     </div>
                 </div>
-                <Input onchange={this.onInputChange} onsubmit={this.onInputSubmit} value={this.state.newTodo}/>
+                <Input onchange={this.props.inputchange} onsubmit={this.onInputSubmit} value={this.props.toDoApp.newTodo}/>
             </div>
         )
     }
