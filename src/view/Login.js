@@ -1,13 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import './Login.less'
-import {increase} from '../redux/reducer'
+import {Button} from 'antd'
+
+
 class Login extends React.Component{
     constructor(props){
         super(props);
         this.state={
             user:'',
-            password:''
+            password:'',
+            count:this.props.count
         }
     }
 
@@ -25,7 +28,8 @@ class Login extends React.Component{
     };
     subMit = ()=> {
         if(this.state.user == 'liuwei' && this.state.password == '123456'){
-            location.href = '#/home'
+            this.props.history.push('/home');
+            // location.href = '#/home'
         }
     };
     ceshi = ()=>{
@@ -33,16 +37,16 @@ class Login extends React.Component{
         dispatch(increase)
     }
     render(){
-        console.log(this.props);
         const {count,onIncreaseClick} = this.props;
         return(
             <div id='login'>
                 <div className='list'>用户名：<input type="text" onChange={this.onChangeUser} placeholder='请输入用户名' value={this.state.user}/></div>
                 <div className='list'>密&emsp;码：<input type="password" onChange={this.onChangePass} placeholder='请输入密码' value={this.state.password}/></div>
-                <button className='btn' onClick={this.subMit}>登录</button>
+                <Button className='btn' onClick={this.subMit}>登录</Button>
                 <br/>
                 {count}
-                <button className='btn' onClick={onIncreaseClick}>增加</button>
+                <Button className='btn' onClick={onIncreaseClick.bind(this,89)}>增加</Button>
+                <Button>hello world</Button>
             </div>
         )
     }
@@ -52,7 +56,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
     return{
-        onIncreaseClick:()=>dispatch({type:'increase'})
+        onIncreaseClick:(value,e)=>dispatch({type:'increase',value:value})//带参数的dispatch
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Login)

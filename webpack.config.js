@@ -14,10 +14,6 @@ module.exports={
                 test:/\.js$/,
                 exclude:/node_modules/,
                 loader: "babel-loader",
-                query: {
-                    plugins:['transform-runtime'],
-                    presets:['es2015','react','stage-2']
-                }
             },
             {
                 test:/\.css$/,
@@ -26,6 +22,10 @@ module.exports={
             {
                 test:/\.less$/,
                 loader: "style-loader!css-loader!less-loader"
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+                loader: 'url-loader?limit=10000'
             }
         ]
     },
@@ -46,3 +46,24 @@ module.exports={
         })
     ]
 };
+
+if (process.env.NODE_ENV === 'production') {
+    module.exports.devtool = '#source-map'
+    // http://vue-loader.vuejs.org/en/workflow/production.html
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
+    ])
+}
