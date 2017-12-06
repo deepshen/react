@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 
 
 const logger = createLogger();
-const createStoreWith = applyMiddleware(logger,thunk)(createStore);
+const createStoreWith = applyMiddleware(logger,thunk)(createStore);//带有中间件的createstore
 
 import App from './reducer'
 
@@ -12,5 +12,5 @@ const reducers = combineReducers({
     App
 });
 
-const storeConfig = (initialState)=>createStoreWith(reducers,initialState);
+const storeConfig = (initialState)=>createStoreWith(reducers,initialState);//store 集合reducer
 export default storeConfig;

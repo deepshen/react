@@ -1,4 +1,4 @@
-const initialState = {
+const initialState = {//默认全局参数
     count:0
 };
 
