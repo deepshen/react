@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Layout,Menu,Breadcrumb,Icon} from 'antd'
+import {Layout,Menu,Breadcrumb,Icon,Input,Avatar} from 'antd'
 import {Link} from 'react-router-dom'
 const {SubMenu} = Menu;
 const {Header,Content,Sider} = Layout
@@ -31,12 +31,9 @@ class Main extends React.Component{
         return(
            <Layout id='main'>
                 <Header className='header'>
-                    <div className='logo'></div>
-                    <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['2']} style={{lineHeight:'64px'}}>
-                        <Menu.Item key='1'>nav1</Menu.Item>
-                        <Menu.Item key='2'>nav2</Menu.Item>
-                        <Menu.Item key='3'>nav3</Menu.Item>
-                    </Menu>
+                    <Input.Search placeholder='请输入您要搜索的' style={{width:'200px'}} onSearch={value => console.log(value)}>
+                    </Input.Search>
+                    <Avatar style={{background:'red'}} className='user-head'></Avatar>
                 </Header>
                 <Layout>
                     <Sider width={200}
