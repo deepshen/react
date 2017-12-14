@@ -6,7 +6,10 @@ const {SubMenu} = Menu;
 const {Header,Content,Sider} = Layout
 import './less/Main.less'
 
-import MainRouter from './MainRouter'
+import {MainRouter} from '../router'
+
+
+
 class Main extends React.Component{
     componentWillMount() {
         this.setState({
@@ -35,7 +38,7 @@ class Main extends React.Component{
                     </Input.Search>
                     <Avatar style={{background:'red'}} className='user-head'></Avatar>
                 </Header>
-                <Layout>
+                <Layout id='footBox'>
                     <Sider width={200}
                            collapsible
                            collapsed={this.state.collapsed}

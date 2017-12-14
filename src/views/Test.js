@@ -7,4 +7,5 @@ class Test extends React.Component{
         )
     }
 }
+console.log('test');
 export default Test

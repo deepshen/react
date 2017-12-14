@@ -1,4 +1,4 @@
-var webapck = require('webpack');
+var webpack = require('webpack');
 var path = require('path');
 var htmlPlugin = require('html-webpack-plugin')
 module.exports={
@@ -43,13 +43,13 @@ module.exports={
         extensions: ['*','.js','.less','.json','.css']
     },
     plugins: [
-        new webapck.ProvidePlugin({
+        new webpack.ProvidePlugin({
             $:'jquery',
             jQuery:'jquery'
         }),
         new htmlPlugin({
             filename:'index.html',
-            template:'./index.html'
+            template:'./templateIndex.html'
         })
     ]
 };
