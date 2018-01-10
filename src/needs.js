@@ -38,4 +38,4 @@ export const ChartCom = (props)=>(
     <Bundle load={Chart}>
         {(Container)=><Container {...props}/>}
     </Bundle>
-)
+);

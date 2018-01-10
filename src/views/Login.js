@@ -7,7 +7,7 @@ class Login extends React.Component{
 
     }
     login= ()=>{
-        this.props.history.push('/main')
+        this.props.history.push('/main/list')
     }
     render(){
         return(

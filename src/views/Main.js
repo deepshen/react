@@ -21,10 +21,6 @@ class Main extends React.Component{
     componentDidUpdate() {
 
     }
-    // state = {
-    //     collapsed: false,
-    //     pathname:this.props.location.pathname
-    // };
     onCollapse = (collapsed) => {
         console.log(collapsed);
         this.setState({ collapsed });
@@ -48,13 +44,13 @@ class Main extends React.Component{
                             <Menu.Item key="/main/list">
                                 <Link to='/main/list'>
                                     <Icon type="user" />
-                                    <span>nav 1</span>
+                                    <span>list</span>
                                 </Link>
                             </Menu.Item>
                             <Menu.Item key="/main/test">
                                 <Link to='/main/test'>
                                     <Icon type="video-camera" />
-                                    <span>nav 2</span>
+                                    <span>test</span>
                                 </Link>
                             </Menu.Item>
                             <Menu.Item key="/main/chart">
